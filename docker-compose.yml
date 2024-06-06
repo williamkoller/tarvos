@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  tarvos-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tarvos-api
+    depends_on:
+      - tarvos-db
+    entrypoint: sh -c 'yarn install --frozen-lockfile && yarn prisma generate && yarn start:swc'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - tarvos-net
+
+  tarvos-db:
+    image: postgres:latest
+    container_name: tarvos-db
+    environment:
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+      PG_DATA: /var/lib/postgresql/data/pg-tarvos-data
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    networks:
+      - tarvos-net
+    volumes:
+      - pg-tarvos-data:/var/lib/postgresql/data
+
+networks:
+  tarvos-net:
+    driver: bridge
+
+volumes:
+  pg-tarvos-data:
+    driver: local
