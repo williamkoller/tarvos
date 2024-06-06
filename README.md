@@ -4,9 +4,11 @@
 
 ## User
 
-- add user
+- Add user
 
 `http://localhost:3002/users`
+
+Body:
 
 ```json
 {
@@ -15,5 +17,20 @@
   "age": 34,
   "email": "johndoe@mail.com",
   "password": "Q1w2e3r4t5y6u7i8o9"
+}
+```
+
+Response:
+
+```json
+{
+  "id": 5,
+  "name": "John",
+  "surname": "Doe",
+  "age": 34,
+  "email": "johndoe@mail.com",
+  "password": "$2b$12$baVboKK4O9IqOOFvzaBS2OdI9GuxKecdG3dPnaVQanQKMEMJVVN0S",
+  "createdAt": "2024-06-06T20:07:08.847Z",
+  "updatedAt": "2024-06-06T20:07:08.847Z"
 }
 ```
