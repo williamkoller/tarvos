@@ -41,7 +41,7 @@ Response:
 
 - Load all users with filters
 
-With query:
+With filter:
 
 `method: GET`
 
@@ -67,7 +67,7 @@ Response:
 ]
 ```
 
-Without query:
+Without filter:
 
 `method: GET`
 
