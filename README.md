@@ -72,7 +72,7 @@ Without query:
 `method: GET`
 
 ```bash
-http://localhost:3002/users?name=jo
+http://localhost:3002/users
 ```
 
 Response:
