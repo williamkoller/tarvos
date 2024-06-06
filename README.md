@@ -7,7 +7,10 @@
 - Add user
 
 `method: POST`
-`http://localhost:3002/users`
+
+```bash
+http://localhost:3002/users
+```
 
 Body:
 
